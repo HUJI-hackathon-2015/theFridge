@@ -1,0 +1,37 @@
+<head>
+  <title>The Fridge</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1 dir="rtl">מה יש במקרר ?</h1>
+
+    <form class="new-item" dir="rtl">
+    <input type="text" name="text" placeholder="הוסף מוצר חדש" />
+  </form>
+</header>
+
+    <ul dir="rtl">
+      {{#each items}}
+        {{> item}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="item">
+
+  <!-- simple text item -->
+  <!-- <li dir="rtl">{{text}}</li> -->
+
+
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+    <span class="text">{{text}}</span>
+    <img src="{{imageFile}}">
+  </li>
+
+</template>
