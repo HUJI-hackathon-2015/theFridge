@@ -1,4 +1,5 @@
 Items = new Mongo.Collection("items");
+Recipes = new Mongo.Collection("recipes");
 
 //Client Code only
 if (Meteor.isClient) {
@@ -11,9 +12,9 @@ if (Meteor.isClient) {
     	return Items.find({}, {sort: {createdAt: -1}});
     },
 
-    readFiles: function()
+    recipes: function ()
     {
-
+    	return Recipes.find({})
     }
   });
 
@@ -51,8 +52,10 @@ if (Meteor.isClient) {
   },
 
   "blur .choose-file": function (event){
-  	console.log ('hi at choose-file');
+  	//read file path
   	var imagePath = event.currentTarget.value;
+
+  	//truncate file path. images are in /public on the app server 
   	var imageFile = imagePath.match(/[^\/\\]+$/);
   	Items.update(this._id, {$set: {imageFile: imageFile}});
   }
