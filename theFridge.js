@@ -49,15 +49,6 @@ if (Meteor.isClient) {
   },
   "click .delete": function () {
     Items.remove(this._id);
-  },
-
-  "blur .choose-file": function (event){
-  	//read file path
-  	var imagePath = event.currentTarget.value;
-
-  	//truncate file path. images are in /public on the app server 
-  	var imageFile = imagePath.match(/[^\/\\]+$/);
-  	Items.update(this._id, {$set: {imageFile: imageFile}});
   }
 });
 
