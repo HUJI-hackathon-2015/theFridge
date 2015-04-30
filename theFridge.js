@@ -25,7 +25,7 @@ if (Meteor.isClient) {
     Items.insert({
       text: text,
       createdAt: new Date(), // current time
-      imageFile: "button_green.jpg"
+      imageFile: "botton_green.jpg"
     });
 
     // Clear form
