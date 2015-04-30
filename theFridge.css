@@ -3,13 +3,13 @@
 .header {
 	height: 70px;
 	width: 100%;
-	background-color: #57607c; 
+	background-color: #57607c;
+	padding-top: 12px; 
 }
 
 .plus {
 	height: 42px;
 	width: 42px;
-	margin-top: 16px;
 	margin-right: 20px;
 	float: right;
 }	
@@ -40,12 +40,28 @@
 		
 }
 
+.back {
+	height: 46px;
+	width: 40px;
+	margin-left: 20;
+	float: left;
+	
+}
 .footer{
 	height: 142px;
 	width: 100%;
 	border-top-color: #57607c;
 	background-color: #27ceb9;
 	padding-top: 20px;
+	
+}
+
+.logo{
+	height: 38px;
+	width: 92;
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
 	
 }
 .items ul {width: 100px;}
