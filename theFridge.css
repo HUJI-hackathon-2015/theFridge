@@ -16,10 +16,16 @@
 
 .items {
 	height: 616px;
-	width: 100%;
-	
+	/*width: 100%;*/
+	margin-left: auto;
+	margin-right:auto;
 	background-color:#27ceb9; 
 }
+
+.items ul {width: 70px;}
+.items li {display:inline-block;}
+.items li input {display:none;}
+.items li img {height:130px;width:130px;}
 
 .buttons {
 	height: 130px;
@@ -43,7 +49,7 @@
 .back {
 	height: 46px;
 	width: 40px;
-	margin-left: 20;
+	margin-left: 20px;
 	float: left;
 	
 }
@@ -58,11 +64,10 @@
 
 .logo{
 	height: 38px;
-	width: 92;
+	width: 92px;
 	display: block;
 	margin-left: auto;
 	margin-right:auto;
-	
 }
 
 .matkon{
@@ -71,7 +76,3 @@
 	margin-left: auto;
 	margin-right:auto;
 }
-.items ul {width: 100px;}
-.items li {display:inline-block;}
-.items li input {display:none;}
-.items li img {height:130px;width:130px;}

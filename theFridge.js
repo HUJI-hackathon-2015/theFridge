@@ -14,7 +14,7 @@ if (Meteor.isClient) {
 
     recipes: function ()
     {
-    	return Recipes.find({})
+    	return Recipes.find({});
     }
   });
 
