@@ -1,0 +1,25 @@
+
+<head>
+	<title>fridge</title>
+
+</head>
+
+<body>
+	<div class="container">
+
+    <!-- header, plus button -->
+    <header class="header">
+     <form class="new-item" >
+        <img class="back" src="/imgs/back.png" width="28" height="46">
+      </form>
+      <div class="logo"><img src="/imgs/logo.png" width="92" height="38" alt="logo">
+      </div>
+    </header>
+
+<footer class='footer'>
+  </footer>
+</div>
+</body>
+
+
+
