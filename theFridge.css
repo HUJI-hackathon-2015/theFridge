@@ -1,4 +1,53 @@
 /* CSS declarations go here */
+
+.header {
+	height: 70px;
+	width: 100%;
+	background-color: #57607c; 
+}
+
+.plus {
+	height: 42px;
+	width: 42px;
+	margin-top: 16px;
+	margin-right: 20px;
+	float: right;
+}	
+
+.items {
+	height: 616px;
+	width: 100%;
+	
+	background-color:#27ceb9; 
+}
+
+.buttons {
+	height: 130px;
+	width:130px;
+	margin-left: 19px;
+	margin-top: 20px;
+	float: left;
+}	
+
+.go {
+	display: block;
+	height: 105px;
+	width: 105px;
+	margin-left: auto;
+	margin-right:auto;
+	
+	
+		
+}
+
+.footer{
+	height: 142px;
+	width: 100%;
+	border-top-color: #57607c;
+	background-color: #27ceb9;
+	padding-top: 20px;
+	
+}
 .items ul {width: 100px;}
 .items li {display:inline-block;}
 .items li input {display:none;}

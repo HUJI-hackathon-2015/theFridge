@@ -1,7 +1,8 @@
+
 <head>
 	<title>The Old Fridge</title>
 
-  <script>
+<script>
     $( document ).ready(function() {
       //alert(11);
       $("img").click(function(){
@@ -20,24 +21,25 @@
 
 
   </script>
+<link href="theFridge.css" rel="stylesheet" type="text/css">
 </head>
 
 <body dir="rtl">
 	<div class="container">
 
     <!-- header, plus button -->
-    <header>
+    <header class="header">
      <form class="new-item" >
       <!-- <input type="text" name="text" placeholder="הוסף מוצר חדש" /> -->
       <!-- <button class="plus">&plus;</button> -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  &plus;
-</button>
+      <button class="plus" data-toggle="modal" data-target="#myModal" >
+	  <img src="../../../sites/fridge/imgs/plus.png" width="41" height="42"></button>
     </form>
   </header>
 
   <!-- unordered list, list all items in database -->
   <ul class="items">
+  	<li class="buttons"></li>
    {{#each items}}
    {{> item}}
    {{/each}}
@@ -68,8 +70,9 @@
 </div>
 </div>
 
-<footer>
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"> GO! </button>
+<footer class='footer'>
+  <button class="go" data-toggle="modal">
+  <img src="../../../sites/fridge/imgs/go!.png" width="96" height="98"></button>
 </footer>
 
 
