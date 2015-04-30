@@ -64,6 +64,13 @@
 	margin-right:auto;
 	
 }
+
+.matkon{
+	height: 680px;
+	width: 440px;
+	margin-left: auto;
+	margin-right:auto;
+}
 .items ul {width: 100px;}
 .items li {display:inline-block;}
 .items li input {display:none;}
