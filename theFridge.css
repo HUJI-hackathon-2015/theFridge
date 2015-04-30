@@ -1,1 +1,5 @@
 /* CSS declarations go here */
+.items ul {width: 100px;}
+.items li {display:inline-block;}
+.items li input {display:none;}
+.items li img {height:130px;width:130px;}

@@ -1,33 +1,94 @@
 <head>
-  <title>The Fridge</title>
+	<title>The Old Fridge</title>
+
+  <script>
+    $( document ).ready(function() {
+      //alert(11);
+      $("img").click(function(){
+        console.log($(this).attr("src"));
+        alert(11);
+      });
+
+      $("#save_name").click(function(){
+        console.log(1+ $("#exampleInputName2").val());
+
+      });
+
+
+
+    });
+
+
+  </script>
 </head>
 
-<body>
-  <div class="container">
+<body dir="rtl">
+	<div class="container">
+
+    <!-- header, plus button -->
     <header>
-      <h1 dir="rtl">מה יש במקרר ?</h1>
-    <form class="new-item" dir="rtl">
-    <input type="text" name="text" placeholder="הוסף מוצר חדש" />
+     <form class="new-item" >
+      <!-- <input type="text" name="text" placeholder="הוסף מוצר חדש" /> -->
+      <!-- <button class="plus">&plus;</button> -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  &plus;
+</button>
+    </form>
+  </header>
 
-  </form>
-</header>
+  <!-- unordered list, list all items in database -->
+  <ul class="items">
+   {{#each items}}
+   {{> item}}
+   {{/each}}
+ </ul>
+</div>
 
-    <ul dir="rtl">
-      {{#each items}}
-        {{> item}}
-      {{/each}}
-    </ul>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+       <form class="form-inline">
+        <div class="form-group">
+          <label for="exampleInputName2">Name</label>
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button id="save_name" type="button" class="btn btn-primary">Save changes</button>
+    </div>
   </div>
+</div>
+</div>
+
+<footer>
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"> GO! </button>
+</footer>
+
+
+
 </body>
 
-<template name="item">
-  <li class="{{#if checked}}checked{{/if}}">
-    <button class="delete">&times;</button>
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <span class="text">{{text}}</span>
-    <img src="{{imageFile}}">
-    <span class="text">{{imageFile}}</span>
-    <input type="file" name="imageFile"  class="choose-file">
-  </li>
 
+
+<!-- define item template. our item has a name and a picture -->
+<template name="item">
+
+  <!-- whether this item is checked (i.e, is in the fridge) -->
+  <li class="{{#if checked}}checked{{/if}}">
+
+    <!-- <button class="delete">&times;</button> -->
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <!--span class="text">{{text}}</span-->
+    <a href="#">
+      <img class="item-image" src="{{imageFile}}">
+    </a>
+  </li>
 </template>
