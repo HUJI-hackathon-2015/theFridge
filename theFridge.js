@@ -1,6 +1,5 @@
 Items = new Mongo.Collection("items");
 
-
 //Client Code only
 if (Meteor.isClient) {
 
@@ -10,6 +9,11 @@ if (Meteor.isClient) {
     items: function()
     {
     	return Items.find({}, {sort: {createdAt: -1}});
+    },
+
+    readFiles: function()
+    {
+
     }
   });
 
@@ -44,8 +48,14 @@ if (Meteor.isClient) {
   },
   "click .delete": function () {
     Items.remove(this._id);
+  },
+
+  "blur .choose-file": function (event){
+  	console.log ('hi at choose-file');
+  	var imagePath = event.currentTarget.value;
+  	var imageFile = imagePath.match(/[^\/\\]+$/);
+  	Items.update(this._id, {$set: {imageFile: imageFile}});
   }
 });
-
 
 }

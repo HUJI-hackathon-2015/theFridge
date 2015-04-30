@@ -8,6 +8,7 @@
       <h1 dir="rtl">מה יש במקרר ?</h1>
     <form class="new-item" dir="rtl">
     <input type="text" name="text" placeholder="הוסף מוצר חדש" />
+
   </form>
 </header>
 
@@ -20,17 +21,13 @@
 </body>
 
 <template name="item">
-
-  <!-- simple text item -->
-  <!-- <li dir="rtl">{{text}}</li> -->
-
-
   <li class="{{#if checked}}checked{{/if}}">
     <button class="delete">&times;</button>
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
     <span class="text">{{text}}</span>
     <img src="{{imageFile}}">
+    <span class="text">{{imageFile}}</span>
+    <input type="file" name="imageFile"  class="choose-file">
   </li>
 
 </template>
