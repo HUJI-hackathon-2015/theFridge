@@ -2,13 +2,14 @@
 <head>
 	<title>fridge</title>
 
+  <!-- This script should be ported to meteor helpers and events mechanism, in a bright sunny day -->
   <script>
     $( document ).ready(function() {
-      $("img").click(function(){
-        console.log($(this).attr("src"));
+      $(".go").click(function(){
+        console.log('go clicked');
       });
       $("#save_name").click(function(){
-        console.log(1+ $("#exampleInputName2").val());
+        console.log($("#exampleInputName2").val());
       });
     });
   </script>
@@ -43,7 +44,7 @@
 
 <footer class='footer'>
   <!-- <button class="go" data-toggle="modal"> -->
-    <img class="go" src="/imgs/go!.png" width="96" height="98">
+    <img class="go" data-toggle="modal" data-target="#viewRecipeModal" src="/imgs/go!.png" width="96" height="98">
     <!-- </button> -->
   </footer>
 </div>
@@ -55,13 +56,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Item</h4>
       </div>
       <div class="modal-body">
        <form class="form-inline">
         <div class="form-group">
           <label for="exampleInputName2">Name</label>
-          <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="מוצר חדש">
         </div>
       </form>
     </div>
@@ -73,21 +74,44 @@
 </div>
 </div>
 
+<!-- bootstrap popup Modal to view recipe -->
+ <div class="modal fade" id="viewRecipeModal" tabindex="-1" role="dialog" aria-labelledby="viewRecipeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="viewRecipeModalLabel">Recipe view</h4>
+      </div>
+      <div class="modal-body">
+        {{#each recipes}}
+           {{> recipe}}
+        {{/each}}
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
 </body>
 
 
 
 <!-- define item template. our item has a name and a picture -->
 <template name="item">
-
   <!-- whether this item is checked (i.e, is in the fridge) -->
   <li class="{{#if checked}}checked{{/if}}">
-
-    <!-- <button class="delete">&times;</button> -->
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-    <!--span class="text">{{text}}</span-->
+    <!-- <input type="checkbox" checked="{{checked}}" class="toggle-checked" /> -->
     <a href="#">
-      <img class="item-image" src="{{imageFile}}">
+      <img class="item-image toggle-checked" src="{{imageFile}}">
     </a>
   </li>
+</template>
+
+<template name="recipe">
+    <h1>{{text}}</h1>
+   <img src="{{image}}">
+   <p>{{preperation}}</p>
 </template>

@@ -1,6 +1,11 @@
 Items = new Mongo.Collection("items");
 Recipes = new Mongo.Collection("recipes");
 
+//to be used when more screen would be added to this app
+// Router.route('/', function () {
+//   this.render('item');
+// });
+
 //Client Code only
 if (Meteor.isClient) {
 
@@ -9,13 +14,31 @@ if (Meteor.isClient) {
   ({
     items: function()
     {
-    	return Items.find({}, {sort: {createdAt: -1}});
+    	return Items.find({});
     },
 
     recipes: function ()
     {
     	return Recipes.find({});
     }
+
+
+    // should be a helper to get available recipes
+    // need to recreate MongoDB Recipes Collection to treat ingredients as set
+ 	//   ,
+ 	// recipe: function ()
+ 	// {
+ 	// 	var recipes = Recipes.find({});
+ 	// 	for (var i = 0; i < recipes.length; i++) 
+ 	// 	{
+ 	// 		for (var j = 0; j < recipes[i].ingredients.length; i++) 
+ 	// 		{
+ 	// 			console.log(ingredients[j]);
+ 	// 		};
+ 	// 	};
+ 	// 	return 1;
+ 	// }
+
   });
 
   //handle events in the main form of theFridge.html
@@ -30,7 +53,7 @@ if (Meteor.isClient) {
     Items.insert({
       text: text,
       createdAt: new Date(), // current time
-      imageFile: "botton_green.jpg"
+      imageFile: "botton_green.jpg" //default image
     });
 
     // Clear form
@@ -51,13 +74,8 @@ if (Meteor.isClient) {
     Items.remove(this._id);
   },
 
-  "blur .choose-file": function (event){
-  	//read file path
-  	var imagePath = event.currentTarget.value;
-
-  	//truncate file path. images are in /public on the app server 
-  	var imageFile = imagePath.match(/[^\/\\]+$/);
-  	Items.update(this._id, {$set: {imageFile: imageFile}});
+  "click .go": function () {
+  	console.log('go clicked');
   }
 });
 
